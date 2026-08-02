@@ -7,12 +7,11 @@ type Node[T any] struct {
 
 type Singly[T any] struct {
 	Head *Node[T]
-	Len int
+	Tail *Node[T]
+	Len  int
 }
 
 // Factory Function
 func New[T any]() *Singly[T] {
 	return &Singly[T]{Head: nil, Len: 0}
 }
-
-

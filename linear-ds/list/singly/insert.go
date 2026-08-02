@@ -16,5 +16,12 @@ func (l *Singly[T]) InsertAfter() {
 }
 
 func (l *Singly[T]) Append(elem T) {
-	// will append element at the end
+	// Inserting element next to the tail
+	newNode := Node[T]{Val: elem, Next: nil}
+
+	// Appending at the end 
+	l.Tail.Next = &newNode
+
+	// Taking tail to last element
+	l.Tail = &newNode
 }
