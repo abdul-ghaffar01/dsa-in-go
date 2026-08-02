@@ -11,8 +11,30 @@ func (l *Singly[T]) PushFront() {
 	
 }
 
-func (l *Singly[T]) InsertAfter() {
+func (l *Singly[T]) InsertAfter(elem T, val T) error {
+	temp := l.Head
 	
+	// Traverse to the first occurence of the value
+	for temp != nil && temp.Val != elem {
+		temp = temp.Next
+	}
+
+	// if temp is nil the element doesn't exist so returning error
+	if temp == nil {
+		return ElementNotFound
+	}
+
+	// Now we have found the element
+	newNode := &Node[T]{Val: val, Next: temp.Next}
+	temp.Next = newNode
+	l.Len++
+
+	// if element is the last element then moving tail
+	if temp == l.Tail {
+		l.Tail = newNode
+	}
+
+	return nil
 }
 
 func (l *Singly[T]) Append(elem T) {
