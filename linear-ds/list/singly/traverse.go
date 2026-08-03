@@ -21,6 +21,12 @@ func (l *Singly[T]) ForEach(f func(*Node[T])) {
 	}
 }
 
-// func (l Singly[T])ToSlice() []T {
+func (l Singly[T]) ToSlice() []T {
+	slice := make([]T, l.Len)
 
-// }
+	for l.Head != nil {
+		slice = append(slice, l.Head.Val)
+		l.Head = l.Head.Next
+	}
+	return slice
+}
