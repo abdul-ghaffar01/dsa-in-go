@@ -1,6 +1,5 @@
 package singly
 
-
 // ----------------- Utility methods -----------------
 
 // func (l *Singly[T]) Reverse() {

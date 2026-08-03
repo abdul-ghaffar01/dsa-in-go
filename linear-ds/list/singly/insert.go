@@ -4,7 +4,7 @@ package singly
 
 func (l *Singly[T]) InsertAt(index int, elem T) error {
 
-	if index > l.Len {
+	if index < 0 && index > l.Len {
 		return OutOfRangeErr
 	}
 	// if index is 0
@@ -22,7 +22,7 @@ func (l *Singly[T]) InsertAt(index int, elem T) error {
 	newNode := &Node[T]{Val: elem, Next: nil}
 	// move to the correct index
 	temp := l.Head
-	for i := 0; i < index; i++ {
+	for i := 0; i < index-1; i++ {
 		temp = temp.Next
 	}
 	newNode.Next = temp.Next
@@ -69,6 +69,13 @@ func (l *Singly[T]) InsertAfter(elem T, val T) error {
 func (l *Singly[T]) Append(elem T) {
 	// Inserting element next to the tail
 	newNode := Node[T]{Val: elem, Next: nil}
+
+	if l.Len == 0 {
+		l.Head = &newNode
+		l.Tail = &newNode
+		l.Len++
+		return
+	}
 
 	// Appending at the end
 	l.Tail.Next = &newNode
