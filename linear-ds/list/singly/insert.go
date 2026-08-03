@@ -7,7 +7,10 @@ func (l *Singly[T]) InsertAt(index int, elem T) {
 	
 }
 
-func (l *Singly[T]) PushFront() {
+func (l *Singly[T]) PushFront(val T) {
+	newNode := &Node[T]{Val: val, Next: l.Head}
+
+	l.Head = newNode
 	
 }
 
