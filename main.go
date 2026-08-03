@@ -11,4 +11,9 @@ func main() {
 	list.InsertAt(1, 9)
 	list.Print()
 	fmt.Println(list.Len)
+	
+	//	for each loop 
+	list.ForEach(func(n *singly.Node[int]) {
+		fmt.Println(n.Val * n.Val)
+	})
 }

@@ -12,9 +12,14 @@ func (l Singly[T]) Print() {
 	fmt.Printf("\n")
 }
 
-// func (l *Singly[T]) ForEach(func(*Node[T])) {
+func (l *Singly[T]) ForEach(f func(*Node[T])) {
+	temp := l.Head
 
-// }
+	for temp != nil {
+		f(temp)
+		temp = temp.Next
+	}
+}
 
 // func (l Singly[T])ToSlice() []T {
 
