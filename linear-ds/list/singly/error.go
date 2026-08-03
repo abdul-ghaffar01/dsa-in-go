@@ -5,5 +5,6 @@ import (
 )
 
 var (
-	ElementNotFound = errors.New("element not found")
+	ElementNotFoundErr = errors.New("element not found")
+	OutOfRangeErr = errors.New("Index out of range")
 )
